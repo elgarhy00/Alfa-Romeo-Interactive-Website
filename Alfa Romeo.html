@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Alfa Romeo</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <style>
+        body {
+            background-image: url('images/home page backkground.avif');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-attachment: fixed;
+        }
+        h1, h2, h3 {
+            color: #b30000;
+        }
+        .custom-heading {
+            color: #fff;
+            font-weight: 700;
+        }
+        .car-name {
+            color: #fff;
+        }
+        #navbar {
+            position: relative;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        #navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            flex-grow: 1;
+        }
+        #navbar li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        #navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        #navbar a:hover {
+            color: #ff4d4d;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+        }
+        table {
+            width: 80%;
+            margin: 40px auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        table.custom-text {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            color: #fff;
+        }
+        table.custom-text td {
+            padding: 15px;
+            border: 1px solid #444;
+            text-align: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        table.custom-text tbody tr:last-child td {
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        table.custom-text thead td {
+            background-color: rgba(179, 0, 0, 0.8);
+            color: #fff;
+            font-weight: 700;
+            border-color: #444;
+        }
+        form {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        form label {
+            font-weight: 700;
+            color: #fff;
+        }
+        form input[type="text"], form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: border-color 0.3s;
+        }
+        form input[type="text"]::placeholder, form input[type="email"]::placeholder {
+            color: #ccc;
+        }
+        form input[type="text"]:focus, form input[type="email"]:focus {
+            border-color: #b30000;
+            outline: none;
+        }
+        form input[type="submit"], form input[type="reset"] {
+            padding: 12px 25px;
+            border: none;
+            background-color: rgb(220, 41, 41);
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        form input[type="submit"]:hover, form input[type="reset"]:hover {
+            background-color: #a60000;
+        }
+        .form-buttons {
+            text-align: center;
+        }
+        video {
+            display: block;
+            margin: 40px auto;
+            max-width: 100%;
+            border: 2px solid #b30000;
+            border-radius: 8px;
+        }
+        .custom-text {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ff4d4d;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #b30000;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        .back-to-top::after {
+            content: '\2191';
+            font-size: 20px;
+        }
+        /* Chatbot Styles */
+        .chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #b30000;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        .chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .chatbot-header {
+            background: #b30000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .chatbot-body {
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .chatbot-body p {
+            margin: 0 0 10px;
+        }
+        .chatbot-option {
+            display: block;
+            padding: 10px;
+            background: #f4f4f4;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+        }
+        .chatbot-option:hover {
+            background: #e0e0e0;
+        }
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .faq-section details {
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .faq-section summary {
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+        }
+        .faq-section p {
+            margin: 10px 0 0;
+            line-height: 1.6;
+            color: #fff;
+        }
+        /* Photo Gallery */
+        .gallery-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        /* Adjusted Video Styling */
+        .adjusted-video {
+            width: 90%; /* Reduced width */
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            margin: 40px auto;
+        }
+        .adjusted-video video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80%;
+            border: 2px solid #b30000;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        /* Logo Styling */
+        .logo-container {
+            display: inline-block;
+            padding: 0 20px;
+            vertical-align: middle;
+        }
+        .logo-container img {
+            height: 60px; 
+            width: auto;
+            transition: transform 0.3s;
+        }
+        .logo-container img:hover {
+            transform: scale(1.1);
+        }
+        /* Swiper Styling */
+        .swiper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .swiper-slide {
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('model-background.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+        .swiper-slide .car-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 10px 0;
+        }
+        .swiper-slide .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .swiper-slide .buttons a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .swiper-slide .buttons .discover-more {
+            background-color: transparent;
+            color: #fff;
+            text-transform: uppercase;
+            border: 1px solid #fff;
+        }
+        .swiper-slide .buttons .discover-more:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        @media (max-width: 768px) {
+            #navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            #navbar ul {
+                display: none;
+                flex-direction: column;
+                background-color: rgba(0,0,0,0.9);
+                width: 100%;
+            }
+            #navbar ul.active {
+                display: flex;
+            }
+            #navbar li {
+                margin: 10px 0;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+            table {
+                width: 95%;
+            }
+            form {
+                padding: 20px;
+            }
+            .chatbot-window {
+                width: 250px;
+            }
+            .logo-container img {
+                height: 20px; 
+            }
+            .swiper {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="logo-container" id="logoContainer">
+                <img src="images/current-badge_457d965994803bd415fc9735d023d1eb.png" alt="Alfa Romeo Logo" loading="lazy"/>
+            </div>
+            <div class="hamburger">☰</div>
+            <ul>
+                <li><a href="tonale_hybrid.html">Tonale Hybrid</a></li>
+                <li><a href="tonale_plugin_hybrid.html">Tonale Plug-in hybrid</a></li>
+                <li><a href="stelvio.html">Stelvio</a></li>
+                <li><a href="giulia.html">Giulia</a></li>
+                <li><a href="stelvio_quadr.html">Stelvio QV</a></li>
+                <li><a href="giulia_quadr.html">Giulia QV</a></li>
+                <li><a href="#testdrive" onclick="scrollToTestDrive(event)">Test Drive</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 class="custom-heading" style="text-align: center; margin: 80px 0 40px 0; font-size: 48px;">Welcome to Alfa Romeo</h1>
+    <p class="custom-text">
+        Alfa Romeo Automobiles. is an Italian luxury car manufacturer and a subsidiary of Stellantis. Founded on 24 June 1910 in Milan, Italy, as A.L.F.A., the brand is renowned for its sport-oriented vehicles and has been involved in car racing since 1911. 
+        <a href="https://en.wikipedia.org/wiki/Alfa_Romeo" target="_blank" title="go to Alfa_Romeo wikipedia page" style="color: #ff4d4d;">Learn More</a>
+    </p>
+
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Our Models</h2>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="images/Tonale hybrid.avif" alt="Tonale Hybrid" loading="lazy"/>
+                <p class="car-name">Tonale Hybrid</p>
+                <div class="buttons">
+                    <a href="tonale_hybrid.html" class="discover-more">Discover More</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/Tonale plug in hybrid.png" alt="Tonale Plug-in Hybrid" loading="lazy"/>
+                <p class="car-name">Tonale Plug-in Hybrid</p>
+                <div class="buttons">
+                    <a href="tonale_plugin_hybrid.html" class="discover-more">Discover More</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/stelvio.avif" alt="Stelvio" loading="lazy"/>
+                <p class="car-name">Stelvio</p>
+                <div class="buttons">
+                    <a href="stelvio.html" class="discover-more">Discover More</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/giulia.avif" alt="Giulia" loading="lazy"/>
+                <p class="car-name">Giulia</p>
+                <div class="buttons">
+                    <a href="giulia.html" class="discover-more">Discover More</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/Stelvio QV.avif" alt="Stelvio Quadrifoglio" loading="lazy"/>
+                <p class="car-name">Stelvio Quadrifoglio</p>
+                <div class="buttons">
+                    <a href="stelvio_quadr.html" class="discover-more">Discover More</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/Giulia QV.avif" alt="Giulia Quadrifoglio" loading="lazy"/>
+                <p class="car-name">Giulia Quadrifoglio</p>
+                <div class="buttons">
+                    <a href="giulia_quadr.html" class="discover-more">Discover More</a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Photo Gallery</h2>
+    <div class="gallery-section">
+        <div class="gallery-grid">
+            <img src="images/1.jpg" alt="Alfa Romeo Car 1" onclick="openLightbox('images/1.jpg')" loading="lazy"/>
+            <img src="images/2.jpg" alt="Alfa Romeo Car 2" onclick="openLightbox('images/2.jpg')" loading="lazy"/>
+            <img src="images/3.jpg" alt="Alfa Romeo Car 3" onclick="openLightbox('images/3.jpg')" loading="lazy"/>
+            <img src="images/4.jpg" alt="Alfa Romeo Car 4" onclick="openLightbox('images/4.jpg')" loading="lazy"/>
+            <img src="images/5.jpg" alt="Alfa Romeo Car 5" onclick="openLightbox('images/5.jpg')" loading="lazy"/>
+            <img src="images/6.jpg" alt="Alfa Romeo Car 6" onclick="openLightbox('images/6.jpg')" loading="lazy"/>
+            <img src="images/7.jpg" alt="Alfa Romeo Car 7" onclick="openLightbox('images/7.jpg')" loading="lazy"/>
+            <img src="images/8.jpg" alt="Alfa Romeo Car 8" onclick="openLightbox('images/8.jpg')" loading="lazy"/>
+            <img src="images/9.jpg" alt="Alfa Romeo Car 9" onclick="openLightbox('images/9.jpg')" loading="lazy"/>
+        </div>
+    </div>
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">×</span>
+        <img id="lightbox-image" src="" alt="Lightbox Image"/>
+    </div>
+
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Models Prices</h2>
+    <table class="custom-text" border="1">
+        <thead>
+            <tr>
+                <td>Model</td>
+                <td>Price</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>TONALE HYBRID</td>
+                <td>2,000,000LE</td>
+            </tr>
+            <tr>
+                <td>TONALE PLUG-IN HYBRID</td>
+                <td>2,500,000LE</td>
+            </tr>
+            <tr>
+                <td>STELVIO</td>
+                <td>3,000,000LE</td>
+            </tr>
+            <tr>
+                <td>GIULIA</td>
+                <td>4,000,000LE</td>
+            </tr>
+            <tr>
+                <td>STELVIO QUADRIFOGLIO</td>
+                <td>4,500,000LE</td>
+            </tr>
+            <tr>
+                <td>GIULIA QUADRIFOGLIO</td>
+                <td>5,500,000LE</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Alfa Romeo in Formula 1</h2>
+    <p class="custom-text">
+        Alfa Romeo has a storied history in Formula One, currently participating as Alfa Romeo F1 Team Stake, operated by Sauber Motorsport AG.
+    </p>
+    <div class="adjusted-video">
+        <video id="f1-video" controls loop muted poster="images/GettyImages-88900014.avif">
+            <source src="images/alfa-romeo-f1-team-orlen-c42-reveal-downloade.co.mp4" type="video/mp4"/>
+            Your Browser Does Not Support Video Tag
+        </video>
+    </div>
+
+    <h2 class="custom-heading" style="text-align: center; margin: 20px 0; font-size: 36px;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+        <details>
+            <summary>What is the warranty period for Alfa Romeo vehicles?</summary>
+            <p>Alfa Romeo offers a standard warranty of 3 years or 100,000 km, whichever comes first, covering manufacturing defects and repairs.</p>
+        </details>
+        <details>
+            <summary>How often should I service my Alfa Romeo?</summary>
+            <p>We recommend servicing your Alfa Romeo every 15,000 km or once a year, depending on your driving conditions and model specifications.</p>
+        </details>
+        <details>
+            <summary>Can I customize my Alfa Romeo before purchase?</summary>
+            <p>Yes, Alfa Romeo offers a range of customization options, including exterior colors, interior trims, and performance packages. Contact your dealer for details.</p>
+        </details>
+    </div>
+
+    <h2 id="testdrive" class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Book a Test Drive</h2>
+    <form>
+        <label for="name">Name</label>
+        <input id="name" required type="text" placeholder="Enter your name"/>
+        <label for="email">E-mail</label>
+        <input id="email" required type="email" placeholder="Enter your email"/>
+        <label for="phone">Phone</label>
+        <input id="phone" required type="text" placeholder="Enter your phone number"/>
+        <label for="model">Car Model</label>
+        <input id="model" required type="text" placeholder="Enter car model"/>
+        <div class="form-buttons">
+            <input type="submit" value="Submit"/>
+            <input type="reset" value="Reset"/>
+        </div>
+    </form>
+
+    <!-- Chatbot -->
+    <div class="chatbot-icon" id="chatbotIcon">💬</div>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">Alfa Romeo Support</div>
+        <div class="chatbot-body">
+            <p>Welcome! How can we assist you today?</p>
+            <a href="https://www.alfaromeousa.com/alfa-services" class="chatbot-option">Alfa Romeo Brand Services</a>
+            <a href="https://fcagroup.my.site.com/AlfaRomeo/s/knowledge" class="chatbot-option">View FAQs</a>
+            <a href="https://www.alfaromeousa.com/shopping-tools/find-dealer" class="chatbot-option">Find an Alfa Romeo dealer near you</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact Us: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="512d7a737a115568626c7f6260696a277a66697a676b69">alfaromeo.com</a> | +123-456-7890</p>
+        <p>
+            <a href="https://www.facebook.com/alfaromeo.com.eg?locale=ar_AR">Facebook</a> |
+            <a href="https://x.com/alfa_romeo">Twitter</a> |
+            <a href="https://www.instagram.com/alfaromeoofficial/">Instagram</a>
+        </p>
+        <p>© 2025 Alfa Romeo</p>
+        <p>Youssef Elgarhy🧔🏻‍♂️</p>
+    </footer>
+
+    <div class="back-to-top" id="backToTop"></div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            }
+        });
+
+        // Smooth Scroll to Test Drive Section
+        function scrollToTestDrive(event) {
+            event.preventDefault();
+            const testDriveSection = document.getElementById('testdrive');
+            const yOffset = -100; // Adjust this value to offset from the top (e.g., to account for navbar height)
+            const y = testDriveSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Hamburger Menu
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('#navbar ul').classList.toggle('active');
+        });
+
+        // Lightbox Functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = imageSrc;
+            lightbox.style.display = 'flex';
+        }
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+
+        // Chatbot Toggle
+        const chatbotIcon = document.getElementById('chatbotIcon');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        chatbotIcon.addEventListener('click', () => {
+            chatbotWindow.style.display = chatbotWindow.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Video Autoplay on View
+        const video = document.getElementById('f1-video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, {
+            threshold: 0.5 // Trigger when 50% of the video is visible
+        });
+        observer.observe(video);
+    </script>
+</body>
+</html>

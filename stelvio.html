@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Alfa Romeo Stelvio</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Discover the Alfa Romeo Stelvio, a performance SUV with high-efficiency engines and advanced technology."/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('images/stelvio background.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: rgba(0,0,0,0.6);
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            margin: 20px;
+        }
+        header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            background-color: #b30000;
+            padding: 8px 16px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #a60000;
+        }
+        .custom-heading {
+            color: #fff;
+            font-weight: 700;
+        }
+        .custom-text {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        .gallery-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 400px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #b30000;
+        }
+        .info-section, .reviews-section, .faq-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .info-section h3 {
+            color: #b30000;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .faq-section details {
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .faq-section summary {
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+        }
+        .faq-section p {
+            margin: 10px 0 0;
+            line-height: 1.6;
+            color: #fff;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ff4d4d;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #b30000;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        .back-to-top::after {
+            content: '\2191';
+            font-size: 20px;
+        }
+        .chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #b30000;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        .chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .chatbot-header {
+            background: #b30000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .chatbot-body {
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .chatbot-body p {
+            margin: 0 0 10px;
+        }
+        .chatbot-option {
+            display: block;
+            padding: 10px;
+            background: #f4f4f4;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+        }
+        .chatbot-option:hover {
+            background: #e0e0e0;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+            .gallery-section {
+                padding: 0 15px;
+            }
+            .info-section, .reviews-section, .faq-section {
+                padding: 0 15px;
+            }
+            .swiper-container {
+                height: 300px;
+            }
+            .chatbot-window {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Alfa Romeo.html" class="back-link">Back to Main Page</a>
+        <h1>Alfa Romeo Stelvio</h1>
+    </header>
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Explore the Stelvio</h2>
+    <div class="gallery-section">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/stelvio front view.avif" alt="Alfa Romeo Stelvio front view" loading="lazy"/></div>
+                <div class="swiper-slide"><img src="images/stelvio interior.avif" alt="Alfa Romeo Stelvio interior" loading="lazy"/></div>
+                <div class="swiper-slide"><img src="images/stelvio side view.avif" alt="Alfa Romeo Stelvio side view" loading="lazy"/></div>
+                <div class="swiper-slide"><img src="images/stelvio view.jpg" alt="Alfa Romeo Stelvio view" loading="lazy"/></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">About Stelvio</h2>
+    <div class="info-section">
+        <div class="custom-text">
+            <p>The Alfa Romeo Stelvio combines luxury, performance, and efficiency, offering a dynamic driving experience in a versatile SUV package.</p>
+            <h3>Specifications</h3>
+            <ul>
+                <li>Engines: 2.0L Turbo Petrol (200-280 HP) or 2.2L Diesel (160-210 HP)</li>
+                <li>Drivetrain: Q4 all-wheel drive</li>
+                <li>Transmission: 8-speed automatic</li>
+                <li>Suspension: AlfaLink™ technology for superior handling</li>
+                <li>Features: Advanced driver assistance systems, premium interior</li>
+            </ul>
+            <p>The Stelvio delivers a perfect balance of sportiness and comfort, making it ideal for both city driving and long journeys.</p>
+        </div>
+    </div>
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">What Owners Say</h2>
+    <div class="reviews-section">
+        <div class="custom-text">
+            <div class="review">
+                <p>"The Stelvio is a joy to drive. It feels sporty yet comfortable for family trips."</p>
+                <p class="author">- Elena S., Stelvio Sprint Owner</p>
+            </div>
+            <div class="review">
+                <p>"The design and technology are top-notch. I love the responsive handling."</p>
+                <p class="author">- Omar H., Stelvio Veloce Owner</p>
+            </div>
+            <div class="review">
+                <p>"This SUV stands out in every way. Alfa Romeo has created something special."</p>
+                <p class="author">- Sophie T., Stelvio Ti Owner</p>
+            </div>
+        </div>
+    </div>
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+        <details>
+            <summary>What engine options are available for the Stelvio?</summary>
+            <p>The Stelvio offers 2.0L Turbo Petrol engines (200-280 HP) and 2.2L Diesel engines (160-210 HP), all paired with an 8-speed automatic transmission.</p>
+        </details>
+        <details>
+            <summary>What is the warranty period for the Stelvio?</summary>
+            <p>It comes with a 3-year warranty or 100,000 km, with extended options available.</p>
+        </details>
+        <details>
+            <summary>Does the Stelvio include advanced driver assistance systems?</summary>
+            <p>Yes, it features adaptive cruise control, lane departure warning, and automated emergency braking on select models.</p>
+        </details>
+    </div>
+    <footer>
+        <p>Contact Us: <a href="/cdn-cgi/l/email-protection#f1989f979eb1909d979085989a92df929e9c">alfaromeo.com</a> | +123-456-7890</p>
+        <p>
+            <a href="https://www.facebook.com/alfaromeo.com.eg?locale=ar_AR">Facebook</a> |
+            <a href="https://x.com/alfa_romeo">Twitter</a> |
+            <a href="https://www.instagram.com/alfaromeoofficial/">Instagram</a>
+        </p>
+        <p>© 2025 Alfa Romeo</p>
+        <p>Youssef Elgarhy🧔🏻‍♂️</p>
+    </footer>
+    <div class="chatbot-icon" id="chatbotIcon">💬</div>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">Alfa Romeo Support</div>
+        <div class="chatbot-body">
+            <p>Welcome! How can we assist you today?</p>
+            <a href="https://www.alfaromeousa.com/alfa-services" class="chatbot-option">Alfa Romeo Brand Services</a>
+            <a href="https://fcagroup.my.site.com/AlfaRomeo/s/knowledge" class="chatbot-option">View FAQs</a>
+            <a href="https://www.alfaromeousa.com/shopping-tools/find-dealer" class="chatbot-option">Find an Alfa Romeo dealer near you</a>
+        </div>
+    </div>
+    <div class="back-to-top" id="backToTop"></div>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        const chatbotIcon = document.getElementById('chatbotIcon');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        chatbotIcon.addEventListener('click', () => {
+            chatbotWindow.style.display = chatbotWindow.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93e262413908dd21',t:'MTc0Njk3MzkyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

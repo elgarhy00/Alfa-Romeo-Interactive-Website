@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Alfa Romeo Tonale Plug-in Hybrid</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Discover the Alfa Romeo Tonale Plug-in Hybrid, a sporty and efficient C-SUV with electrified performance."/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('images/tonale Plug in Hybrid background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: rgba(0,0,0,0.6);
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            margin: 20px;
+        }
+        header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            background-color: #b30000;
+            padding: 8px 16px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+        .back-link:hover {
+            background-color: #a60000;
+        }
+        .custom-heading {
+            color: #fff;
+            font-weight: 700;
+        }
+        .custom-text {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        .gallery-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 400px;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #b30000;
+        }
+        .info-section, .reviews-section, .faq-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .info-section h3 {
+            color: #b30000;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .faq-section details {
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #b30000;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .faq-section summary {
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+        }
+        .faq-section p {
+            margin: 10px 0 0;
+            line-height: 1.6;
+            color: #fff;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ff4d4d;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #b30000;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        .back-to-top::after {
+            content: '\2191';
+            font-size: 20px;
+        }
+        .chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #b30000;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+        .chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .chatbot-header {
+            background: #b30000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .chatbot-body {
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .chatbot-body p {
+            margin: 0 0 10px;
+        }
+        .chatbot-option {
+            display: block;
+            padding: 10px;
+            background: #f4f4f4;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+        }
+        .chatbot-option:hover {
+            background: #e0e0e0;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+            .gallery-section {
+                padding: 0 15px;
+            }
+            .info-section, .reviews-section, .faq-section {
+                padding: 0 15px;
+            }
+            .swiper-container {
+                height: 300px;
+            }
+            .chatbot-window {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <a href="Alfa Romeo.html" class="back-link">Back to Main Page</a>
+        <h1>Alfa Romeo Tonale Plug-in Hybrid</h1>
+    </header>
+
+    <!-- Gallery Section -->
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Explore the Tonale Plug-in Hybrid</h2>
+    <div class="gallery-section">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/Tonale Plug-in Hybrid front view.avif" alt="Alfa Romeo Tonale Plug-in Hybrid front view" loading="lazy"/></div>
+                <div class="swiper-slide"><img src="images/Tonale Plug-in Hybrid interior.jpeg" alt="Alfa Romeo Tonale Plug-in Hybrid interior" loading="lazy"/></div>
+                <div class="swiper-slide"><img src="images/Tonale Plug-in Hybrid side view.avif" alt="Alfa Romeo Tonale Plug-in Hybrid side view" loading="lazy"/></div>
+                <div class="swiper-slide"><img src="images/Tonale Plug-in Hybrid view.jpeg" alt="Alfa Romeo Tonale Plug-in Hybrid view" loading="lazy"/></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">About Tonale Plug-in Hybrid</h2>
+    <div class="info-section">
+        <div class="custom-text">
+            <p>The Tonale Plug-in Hybrid is the most powerful and electrified model in the Tonale lineup, offering sporty performance and efficiency.</p>
+            <h3>Specifications</h3>
+            <ul>
+                <li>Power: 280 HP</li>
+                <li>Engine: 1.3-liter MultiAir turbo gasoline + electric motor</li>
+                <li>Acceleration: 0-100 km/h in 6.2 seconds</li>
+                <li>Battery: 15.5 kWh</li>
+                <li>Electric Range: Up to 82 km (city), 69 km (combined)</li>
+                <li>Drivetrain: Q4 all-wheel drive</li>
+                <li>Charging: Full charge in 2.5 hours with 7.4 kW fast charger</li>
+            </ul>
+            <p>This model delivers unparalleled control and driving pleasure, making it the sportiest and most efficient Plug-in Hybrid C-SUV in its class.</p>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">What Owners Say</h2>
+    <div class="reviews-section">
+        <div class="custom-text">
+            <div class="review">
+                <p>"The Tonale Plug-in Hybrid is a game-changer. Electric range is perfect for my daily drives."</p>
+                <p class="author">- Marco L., Tonale Plug-in Hybrid Owner</p>
+            </div>
+            <div class="review">
+                <p>"Sporty, efficient, and packed with tech. This SUV is everything I wanted."</p>
+                <p class="author">- Aisha K., Tonale Plug-in Hybrid Owner</p>
+            </div>
+            <div class="review">
+                <p>"The acceleration and handling are incredible for a hybrid. Highly impressed!"</p>
+                <p class="author">- Liam P., Tonale Plug-in Hybrid Owner</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <h2 class="custom-heading" style="text-align: center; margin: 40px 0; font-size: 36px;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+        <details>
+            <summary>What is the electric range of the Tonale Plug-in Hybrid?</summary>
+            <p>It offers up to 82 km in city driving and 69 km in combined conditions.</p>
+        </details>
+        <details>
+            <summary>What is the warranty period for the Tonale Plug-in Hybrid?</summary>
+            <p>It comes with a 3-year warranty or 100,000 km, with extended options available.</p>
+        </details>
+        <details>
+            <summary>How long does it take to charge the battery?</summary>
+            <p>A full charge takes 2.5 hours with a 7.4 kW fast charger.</p>
+        </details>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Contact Us: <a href="/cdn-cgi/l/email-protection#7a090f0a0a15080e3a1b161c1b0815171f1554191517">alfaromeo.com</a> | +123-456-7890</p>
+        <p>
+            <a href="https://www.facebook.com/alfaromeo.com.eg?locale=ar_AR">Facebook</a> |
+            <a href="https://x.com/alfa_romeo">Twitter</a> |
+            <a href="https://www.instagram.com/alfaromeoofficial/">Instagram</a>
+        </p>
+        <p>© 2025 Alfa Romeo</p>
+        <p>Youssef Elgarhy🧔🏻‍♂️</p>
+    </footer>
+
+    <!-- Chatbot and Back-to-Top -->
+    <div class="chatbot-icon" id="chatbotIcon">💬</div>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">Alfa Romeo Support</div>
+        <div class="chatbot-body">
+            <p>Welcome! How can we assist you today?</p>
+            <a href="https://www.alfaromeousa.com/alfa-services" class="chatbot-option">Alfa Romeo Brand Services</a>
+            <a href="https://fcagroup.my.site.com/AlfaRomeo/s/knowledge" class="chatbot-option">View FAQs</a>
+            <a href="https://www.alfaromeousa.com/shopping-tools/find-dealer" class="chatbot-option">Find an Alfa Romeo dealer near you</a>
+        </div>
+    </div>
+    <div class="back-to-top" id="backToTop"></div>
+
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Chatbot Toggle
+        const chatbotIcon = document.getElementById('chatbotIcon');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        chatbotIcon.addEventListener('click', () => {
+            chatbotWindow.style.display = chatbotWindow.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93e262411c28bcb9',t:'MTc0Njk3MzkyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
